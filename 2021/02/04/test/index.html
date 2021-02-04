@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -20,16 +20,16 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="一点点算法笔记  数论  给圆上三点，求园的周长  三角形面积：$$S &#x3D; \frac{1}{2}absinB$$ 根据海伦公式：$$S &#x3D; \sqrt{p(p-a)(p-b)(p-c)}$$ 根据正弦定理：$$\frac{a}{sinA} &#x3D; \frac{b}{sinB} &#x3D; \frac{c}{sinC} &#x3D; d$$  把$$sinA &#x3D; \frac{a}{d}$$代入上式得： d&#x3D;abc2S">
+  <meta name="description" content="三角形面积：S&#x3D;absinBS &#x3D;absinBS&#x3D;absinB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="test">
 <meta property="og:url" content="http://example.com/2021/02/04/test/index.html">
 <meta property="og:site_name" content="圈圈小站">
-<meta property="og:description" content="一点点算法笔记  数论  给圆上三点，求园的周长  三角形面积：$$S &#x3D; \frac{1}{2}absinB$$ 根据海伦公式：$$S &#x3D; \sqrt{p(p-a)(p-b)(p-c)}$$ 根据正弦定理：$$\frac{a}{sinA} &#x3D; \frac{b}{sinB} &#x3D; \frac{c}{sinC} &#x3D; d$$  把$$sinA &#x3D; \frac{a}{d}$$代入上式得： d&#x3D;abc2S">
-<meta property="og:locale" content="en_US">
+<meta property="og:description" content="三角形面积：S&#x3D;absinBS &#x3D;absinBS&#x3D;absinB">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-02-04T04:01:04.000Z">
-<meta property="article:modified_time" content="2021-02-04T06:45:12.378Z">
-<meta property="article:author" content="yyq">
+<meta property="article:modified_time" content="2021-02-04T08:09:10.145Z">
+<meta property="article:author" content="袁瑜谦">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -43,7 +43,7 @@
     sidebar: "",
     isHome : false,
     isPost : true,
-    lang   : 'en'
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -87,7 +87,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -101,7 +101,7 @@
       <h1 class="site-title">圈圈小站</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">hello world</p>
+      <p class="site-subtitle" itemprop="description">quanquan's blog</p>
   </div>
 
   <div class="site-nav-right">
@@ -118,36 +118,36 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">2</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">2</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">0</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">0</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">2</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">2</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
 
-    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a>
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
       </li>
   </ul>
@@ -163,7 +163,7 @@
   </span>
   <div class="search-input-container">
     <input autocomplete="off" autocapitalize="off"
-           placeholder="Searching..." spellcheck="false"
+           placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
@@ -200,12 +200,12 @@
     
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/04/test/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="yyq">
+      <meta itemprop="name" content="袁瑜谦">
       <meta itemprop="description" content="good good study">
     </span>
 
@@ -222,10 +222,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="Created: 2021-02-04 12:01:04 / Modified: 14:45:12" itemprop="dateCreated datePublished" datetime="2021-02-04T12:01:04+08:00">2021-02-04</time>
+              <time title="创建时间：2021-02-04 12:01:04 / 修改时间：16:09:10" itemprop="dateCreated datePublished" datetime="2021-02-04T12:01:04+08:00">2021-02-04</time>
             </span>
 
           
@@ -239,189 +239,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="一点点算法笔记"><a class="markdownIt-Anchor" href="#一点点算法笔记"></a> 一点点算法笔记</h1>
-<h2 id="数论"><a class="markdownIt-Anchor" href="#数论"></a> 数论</h2>
-<h4 id="给圆上三点求园的周长"><a class="markdownIt-Anchor" href="#给圆上三点求园的周长"></a> 给圆上三点，求园的周长</h4>
-<blockquote>
-<p>三角形面积：$$S = \frac{1}{2}absinB$$</p>
-<p>根据海伦公式：$$S = \sqrt{p(p-a)(p-b)(p-c)}$$</p>
-<p>根据正弦定理：$$\frac{a}{sinA} = \frac{b}{sinB} = \frac{c}{sinC} = d$$</p>
-</blockquote>
-<p>把$$sinA = \frac{a}{d}$$代入上式得：</p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mo>=</mo><mfrac><mrow><mi>a</mi><mi>b</mi><mi>c</mi></mrow><mrow><mn>2</mn><mi>S</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">d = \frac{abc}{2S}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.37144em;"></span><span class="strut bottom" style="height:2.05744em;vertical-align:-0.686em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">d</span><span class="mrel">=</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathrm">2</span><span class="mord mathit" style="margin-right:0.05764em;">S</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit">a</span><span class="mord mathit">b</span><span class="mord mathit">c</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></span></p>
-<p>外界圆周长： $$ l = d*\pi$$</p>
-<h4 id="扩展欧几里得算法"><a class="markdownIt-Anchor" href="#扩展欧几里得算法"></a> 扩展欧几里得算法</h4>
-<blockquote>
-<p><strong>贝祖定理</strong>：</p>
-<p>如果a、b是整数，那么一定存在整数x、y使得ax+by=gcd(a,b)。</p>
-</blockquote>
-<p>得到每两个相邻状态的x和y的转化，就可以在求gcd的同时对x和y进行求值：</p>
-<p>​     $$a$$ % $$b = a-(a/b)*b$$   代入：</p>
-<p>​     $$b*x1 + (a-(a/b)*b)*y1$$</p>
-= a*y1 + b*(x1 – a/b*y1) = gcd 
-
-<p><code>发现</code>  $$ x = y1 , y = x1 – a/b*y1$$</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">exgcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> &amp;x,<span class="keyword">int</span> &amp;y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        x=<span class="number">1</span>,y=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> d=exgcd(b,a%b,x,y);</span><br><span class="line">    <span class="keyword">int</span> k=x;</span><br><span class="line">    x=y;</span><br><span class="line">    y=k-a/b*y;</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="无限循环小数"><a class="markdownIt-Anchor" href="#无限循环小数"></a> 无限循环小数</h4>
-<p><em><strong>万能公式</strong></em></p>
-<p>设小数$$0.abcdefef$$…, 设其对应最简分数为:  $$\frac{x}{y}$$</p>
-<p>设非循环节长度为c，循环节总长度为k，则</p>
-\frac{x}{y}*10^{k+c} = abcdefef $$  (将小数点后的数省略)
-$$\frac{x}{y}*10^{c} = abcd $$  (将小数点后的数省略)
-
-相减得到：
-
-$$\frac{x}{y}*10^{c}*(10^k-1) = abcdefef-abcd 
-<p>则：$$\frac{x}{y} = \frac{abcdefef-abcd}{10<sup>{c}*(10</sup>k-1)}$$</p>
-<h4 id="矩阵"><a class="markdownIt-Anchor" href="#矩阵"></a> 矩阵</h4>
-<p><strong>Homogeneous矩阵</strong>——写在 n 个独立位置上的数的和相等。</p>
-<p>如</p>
-\left[
-
-\matrix{
-
-1&2&3\\
-
-4&5&6\\
-
-7&8&9
-
-}
-
-\right]
-
-<p>判断一个矩阵是否是Homogeneous矩阵，通过局部递推出规律：</p>
-<p>对于一个n×n方阵，只要它的所有（n-1)×(n-1)子方阵是Homogeneous的，则该方阵是Homogeneous的；进一步递推可得，只要该方阵的所有2×2的子方阵符合两对角线相加相等，则该方阵是Homogeneous的。</p>
-<p>如上面的矩阵，其每个2×2的子方阵为$$\left[\matrix{1&amp;2\4&amp;5}\right]$$,$$\left[\matrix{2&amp;3\5&amp;6}\right]$$,$$\left[\matrix{4&amp;5\7&amp;8}\right]$$,$$\left[\matrix{5&amp;6\8&amp;9}\right]$$，符合条件。</p>
-<h4 id="最大子矩阵"><a class="markdownIt-Anchor" href="#最大子矩阵"></a> 最大子矩阵</h4>
-<p>将二维数组转化为一维数组，再求最大子序列和。</p>
-<p>（1）第一轮：第一次仅第一行合并；第二次1、2行合并；第三次1、2、3行合并…</p>
-<p>（2）第二轮：第一次仅第二行合并；第二次2、3行合并；第三次2、3、4行合并…</p>
-<p>（3）第三轮：第一次仅第三行合并；第二次3、4行合并；第三次3、4、5行合并…</p>
-<p><strong>求最大子序列：</strong></p>
-<blockquote>
-<p>初始化ans=0，累加0到n-1个元素，每一步得到一个sum，如果某一步中sum&gt;ans，则更新ans，如果sum&lt;0，则重置sum为0，最终ans中储存的即为最大子序列和。</p>
-</blockquote>
-<h4 id="素数和"><a class="markdownIt-Anchor" href="#素数和"></a> 素数和</h4>
-<p>**哥德巴赫猜想：**每个大于4的偶数可以写成两个奇素数的和。</p>
-<p>将每个数表示成4个素数的和：</p>
-<p>N&lt;8 不能表示</p>
-<p>N&gt;=8的偶数 先分解出2 2，N-=4</p>
-<p>N&gt;=8的奇数 先分解出2 3，N-=5</p>
-<h2 id="stl"><a class="markdownIt-Anchor" href="#stl"></a> STL</h2>
-<p>**序列容器：**vector deque list  [ 线性数据结构 ]</p>
-<p>**关联容器：**set multiset map multimap  [ 非线性数据结构  能够快速找出保存在容器中的元素]</p>
-<p>**容器适配器：**stack queue priority_queue</p>
-<h4 id="1string容器"><a class="markdownIt-Anchor" href="#1string容器"></a> 1.string容器</h4>
-<p>构造函数：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span>();<span class="comment">//创建一个空的字符串 例如: string str;      </span></span><br><span class="line"><span class="built_in">string</span>(<span class="keyword">const</span> <span class="built_in">string</span>&amp; str);<span class="comment">//使用一个string对象初始化另一个string对象</span></span><br><span class="line"><span class="built_in">string</span>(<span class="keyword">const</span> <span class="keyword">char</span>* s);<span class="comment">//使用字符串s初始化</span></span><br><span class="line"><span class="built_in">string</span>(<span class="keyword">int</span> n, <span class="keyword">char</span> c);<span class="comment">//使用n个字符c初始化 </span></span><br></pre></td></tr></table></figure>
-<p>赋值：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span>&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> <span class="keyword">char</span>* s);*<span class="comment">//char\*类型字符串 赋值给当前的字符串* </span></span><br><span class="line"><span class="built_in">string</span>&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> <span class="built_in">string</span> &amp;s);*<span class="comment">//把字符串s赋给当前的字符串* </span></span><br><span class="line"><span class="built_in">string</span>&amp; <span class="keyword">operator</span>=(<span class="keyword">char</span> c);*<span class="comment">//字符赋值给当前的字符串</span></span><br></pre></td></tr></table></figure>
-<p>string拼接操作：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span>&amp; <span class="keyword">operator</span>+=(<span class="keyword">const</span> <span class="built_in">string</span>&amp; str);<span class="comment">//重载+=操作符</span></span><br><span class="line"><span class="built_in">string</span>&amp; <span class="keyword">operator</span>+=(<span class="keyword">const</span> <span class="keyword">char</span>* str);<span class="comment">//重载+=操作符</span></span><br><span class="line"><span class="built_in">string</span>&amp; <span class="keyword">operator</span>+=(<span class="keyword">const</span> <span class="keyword">char</span> c);<span class="comment">//重载+=操作符</span></span><br><span class="line"><span class="function"><span class="built_in">string</span>&amp; <span class="title">append</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *s)</span></span>;<span class="comment">//把字符串s连接到当前字符串结尾</span></span><br><span class="line"><span class="function"><span class="built_in">string</span>&amp; <span class="title">append</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *s, <span class="keyword">int</span> n)</span></span>;<span class="comment">//把字符串s的前n个字符连接到当前字符串结尾</span></span><br><span class="line"><span class="function"><span class="built_in">string</span>&amp; <span class="title">append</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span> &amp;s)</span></span>;<span class="comment">//同operator+=()</span></span><br><span class="line"><span class="function"><span class="built_in">string</span>&amp; <span class="title">append</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span> &amp;s, <span class="keyword">int</span> pos, <span class="keyword">int</span> n)</span></span>;<span class="comment">//把字符串s中从pos开始的n个字符连接到当前字符串结尾</span></span><br><span class="line"><span class="function"><span class="built_in">string</span>&amp; <span class="title">append</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">char</span> c)</span></span>;<span class="comment">//在当前字符串结尾添加n个字符c</span></span><br></pre></td></tr></table></figure>
-<p>string查找和替换：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span>&amp; str, <span class="keyword">int</span> pos = <span class="number">0</span>)</span> <span class="keyword">const</span></span>; <span class="comment">//查找str第一次出现位置,从pos开始查找</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* s, <span class="keyword">int</span> pos = <span class="number">0</span>)</span> <span class="keyword">const</span></span>;  <span class="comment">//查找s第一次出现位置,从pos开始查找</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* s, <span class="keyword">int</span> pos, <span class="keyword">int</span> n)</span> <span class="keyword">const</span></span>;  <span class="comment">//从pos位置查找s的前n个字符第一次位置</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> c, <span class="keyword">int</span> pos = <span class="number">0</span>)</span> <span class="keyword">const</span></span>;  <span class="comment">//查找字符c第一次出现位置</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rfind</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span>&amp; str, <span class="keyword">int</span> pos = npos)</span> <span class="keyword">const</span></span>;<span class="comment">//查找str最后一次位置,从pos开始查找</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rfind</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* s, <span class="keyword">int</span> pos = npos)</span> <span class="keyword">const</span></span>;<span class="comment">//查找s最后一次出现位置,从pos开始查找</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rfind</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* s, <span class="keyword">int</span> pos, <span class="keyword">int</span> n)</span> <span class="keyword">const</span></span>;<span class="comment">//从pos查找s的前n个字符最后一次位置</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rfind</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> c, <span class="keyword">int</span> pos = <span class="number">0</span>)</span> <span class="keyword">const</span></span>; <span class="comment">//查找字符c最后一次出现位置</span></span><br><span class="line"><span class="function"><span class="built_in">string</span>&amp; <span class="title">replace</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> n, <span class="keyword">const</span> <span class="built_in">string</span>&amp; str)</span></span>; <span class="comment">//替换从pos开始n个字符为字符串str</span></span><br><span class="line"><span class="function"><span class="built_in">string</span>&amp; <span class="title">replace</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> n, <span class="keyword">const</span> <span class="keyword">char</span>* s)</span></span>; <span class="comment">//替换从pos开始的n个字符为字符串s</span></span><br></pre></td></tr></table></figure>
-<p>string子串：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">substr</span><span class="params">(<span class="keyword">int</span> pos = <span class="number">0</span>, <span class="keyword">int</span> n = npos)</span> <span class="keyword">const</span></span>;<span class="comment">//返回由pos开始的n个字符组成的字符串</span></span><br></pre></td></tr></table></figure>
-<p>插入和删除：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span>&amp; <span class="title">insert</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">const</span> <span class="keyword">char</span>* s)</span></span>; <span class="comment">//插入字符串</span></span><br><span class="line"><span class="function"><span class="built_in">string</span>&amp; <span class="title">insert</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">const</span> <span class="built_in">string</span>&amp; str)</span></span>; <span class="comment">//插入字符串</span></span><br><span class="line"><span class="function"><span class="built_in">string</span>&amp; <span class="title">insert</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> n, <span class="keyword">char</span> c)</span></span>;<span class="comment">//在指定位置插入n个字符c</span></span><br><span class="line"><span class="function"><span class="built_in">string</span>&amp; <span class="title">erase</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> n = npos)</span></span>;<span class="comment">//删除从Pos开始的n个字符 </span></span><br></pre></td></tr></table></figure>
-<p>string和c-style字符串转换：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//string 转 char*</span></span><br><span class="line"><span class="built_in">string</span> str = <span class="string">&quot;it&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span>* cstr = str.c_str();</span><br><span class="line"><span class="comment">//char* 转 string </span></span><br><span class="line"><span class="keyword">char</span>* s = <span class="string">&quot;it&quot;</span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(s)</span></span>;</span><br></pre></td></tr></table></figure>
-<h4 id="2vector容器"><a class="markdownIt-Anchor" href="#2vector容器"></a> 2.vector容器</h4>
-<blockquote>
-<p>Vector维护一个线性空间，所以不论元素的型别如何，<strong>普通指针</strong>都可以作为vector的迭代器，因为vector迭代器所需要的操作行为，如operaroe*, operator-&gt;, operator++, operator–, operator+, operator-, operator+=, operator-=, 普通指针天生具备。</p>
-</blockquote>
-<p>构造函数：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;T&gt; v; <span class="comment">//采用模板实现类实现，默认构造函数</span></span><br><span class="line"><span class="built_in">vector</span>(v.begin(), v.end());<span class="comment">//将v[begin(), end())区间中的元素拷贝给本身。</span></span><br><span class="line"><span class="built_in">vector</span>(n, elem);<span class="comment">//构造函数将n个elem拷贝给本身。</span></span><br><span class="line"><span class="built_in">vector</span>(<span class="keyword">const</span> <span class="built_in">vector</span> &amp;vec);<span class="comment">//拷贝构造函数。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//例子 使用第二个构造函数 我们可以...</span></span><br><span class="line"><span class="keyword">int</span> arr[] = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">9</span>&#125;;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">v1</span><span class="params">(arr, arr + <span class="keyword">sizeof</span>(arr) / <span class="keyword">sizeof</span>(<span class="keyword">int</span>))</span></span>; </span><br></pre></td></tr></table></figure>
-<p>大小操作：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">size();<span class="comment">//返回容器中元素的个数</span></span><br><span class="line">empty();<span class="comment">//判断容器是否为空</span></span><br><span class="line">resize(<span class="keyword">int</span> num);<span class="comment">//重新指定容器的长度为num，若容器变长，则以默认值填充新位置。如果容器变短，则末尾超出容器长度的元素被删除。</span></span><br><span class="line">resize(<span class="keyword">int</span> num, elem);<span class="comment">//重新指定容器的长度为num，若容器变长，则以elem值填充新位置。如果容器变短，则末尾超出容器长&gt;度的元素被删除。</span></span><br><span class="line">capacity();<span class="comment">//容器的容量</span></span><br><span class="line">reserve(<span class="keyword">int</span> len);<span class="comment">//容器预留len个元素长度，预留位置不初始化，元素不可访问。</span></span><br></pre></td></tr></table></figure>
-<p>插入和删除：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">insert(const_iterator pos, <span class="keyword">int</span> count,ele);<span class="comment">//迭代器指向位置pos插入count个元素ele.</span></span><br><span class="line">push_back(ele); <span class="comment">//尾部插入元素ele</span></span><br><span class="line">pop_back();<span class="comment">//删除最后一个元素</span></span><br><span class="line">erase(const_iterator start, const_iterator end);<span class="comment">//删除迭代器从start到end之间的元素</span></span><br><span class="line">erase(const_iterator pos);<span class="comment">//删除迭代器指向的元素</span></span><br><span class="line">clear();<span class="comment">//删除容器中所有元素</span></span><br></pre></td></tr></table></figure>
-<p><strong>优化方法</strong></p>
-<p>1.提前分配足够的空间以避免不必要的重新分配和复制周期 reserve()</p>
-<blockquote>
-<p>当vector <strong>预留空间不足</strong>时</p>
-<p>常用操作push_back()函数在<strong>每次插入元素时</strong>会检测预留空间是否够用</p>
-<p>预留空间不够用：要重<strong>新分配内存</strong>，并且<strong>拷贝</strong>当前已有的所有元素到新的内存区域。如果已有元素很多，这个操作将变的非常昂贵。</p>
-</blockquote>
-<p>2.使用 shrink_to_fit() 释放 vector 占用的内存， – clear() 或 erase() 不会释放内存。</p>
-<p>3.在 vector 前部做的插入操作其复杂度都是 O(n) 。</p>
-<h4 id="3deque容器"><a class="markdownIt-Anchor" href="#3deque容器"></a> 3.deque容器</h4>
-<p>双向开口的连续线性空间。</p>
-<p>与vector容器的差异：</p>
-<p>1.deque允许使用常数项时间对头端进行元素的插入和删除操作。</p>
-<p>2.deque没有容量的概念，因为它是动态的以分段连续空间组合而成，随时可以增加一段新的空间并链接起来，换句话说，像vector那样，”旧空间不足而重新配置一块更大空间，然后复制元素，再释放旧空间”这样的事情在deque身上是不会发生的。</p>
-<p>deque双端插入和删除操作：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">push_back(elem);<span class="comment">//在容器尾部添加一个数据</span></span><br><span class="line">push_front(elem);<span class="comment">//在容器头部插入一个数据</span></span><br><span class="line">pop_back();<span class="comment">//删除容器最后一个数据</span></span><br><span class="line">pop_front();<span class="comment">//删除容器第一个数据</span></span><br></pre></td></tr></table></figure>
-<p>deque插入操作：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">insert(pos,elem);<span class="comment">//在pos位置插入一个elem元素的拷贝，返回新数据的位置。</span></span><br><span class="line">insert(pos,n,elem);<span class="comment">//在pos位置插入n个elem数据，无返回值。</span></span><br><span class="line">insert(pos,beg,end);<span class="comment">//在pos位置插入[beg,end)区间的数据，无返回值。</span></span><br></pre></td></tr></table></figure>
-<p>deque删除操作：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">clear();<span class="comment">//移除容器的所有数据</span></span><br><span class="line">erase(beg,end);<span class="comment">//删除[beg,end)区间的数据，返回下一个数据的位置。</span></span><br><span class="line">erase(pos);<span class="comment">//删除pos位置的数据，返回下一个数据的位置。</span></span><br></pre></td></tr></table></figure>
-<h4 id="4stack容器"><a class="markdownIt-Anchor" href="#4stack容器"></a> 4.stack容器</h4>
-<p><strong>stack没有迭代器</strong></p>
-<p>Stack所有元素的进出都必须符合”先进后出”的条件，只有stack顶端的元素，才有机会被外界取用。Stack不提供遍历功能，也不提供迭代器。</p>
-<p>stack数据存取操作</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">push(elem);<span class="comment">//向栈顶添加元素</span></span><br><span class="line">pop();<span class="comment">//从栈顶移除第一个元素</span></span><br><span class="line">top();<span class="comment">//返回栈顶元素</span></span><br></pre></td></tr></table></figure>
-<p>stack大小操作</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">empty();<span class="comment">//判断堆栈是否为空</span></span><br><span class="line">size();<span class="comment">//返回堆栈的大小</span></span><br></pre></td></tr></table></figure>
-<h4 id="5queue容器"><a class="markdownIt-Anchor" href="#5queue容器"></a> 5.queue容器</h4>
-<p>queue存取、插入和删除</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">push(elem);<span class="comment">//往队尾添加元素</span></span><br><span class="line">pop();<span class="comment">//从队头移除第一个元素</span></span><br><span class="line">back();<span class="comment">//返回最后一个元素</span></span><br><span class="line">front();<span class="comment">//返回第一个元素</span></span><br></pre></td></tr></table></figure>
-<h4 id="6list容器"><a class="markdownIt-Anchor" href="#6list容器"></a> 6.list容器</h4>
-<ul>
-<li>
-<p>相较于vector的连续线性空间，list就显得负责许多，它的好处是每次插入或者删除一个元素，就是配置或者释放一个元素的空间。因此，list对于空间的运用有绝对的精准，一点也不浪费。而且，对于任何位置的元素插入或元素的移除，list永远是常数时间。</p>
-</li>
-<li>
-<p>List容器是一个双向链表。</p>
-</li>
-</ul>
-<p>list插入和删除：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">push_back(elem);<span class="comment">//在容器尾部加入一个元素</span></span><br><span class="line">pop_back();<span class="comment">//删除容器中最后一个元素</span></span><br><span class="line">push_front(elem);<span class="comment">//在容器开头插入一个元素</span></span><br><span class="line">pop_front();<span class="comment">//从容器开头移除第一个元素</span></span><br><span class="line">insert(pos,elem);<span class="comment">//在pos位置插elem元素的拷贝，返回新数据的位置。</span></span><br><span class="line">insert(pos,n,elem);<span class="comment">//在pos位置插入n个elem数据，无返回值。</span></span><br><span class="line">insert(pos,beg,end);<span class="comment">//在pos位置插入[beg,end)区间的数据，无返回值。</span></span><br><span class="line">clear();<span class="comment">//移除容器的所有数据</span></span><br><span class="line">erase(beg,end);<span class="comment">//删除[beg,end)区间的数据，返回下一个数据的位置。</span></span><br><span class="line">erase(pos);<span class="comment">//删除pos位置的数据，返回下一个数据的位置。</span></span><br><span class="line">remove(elem);<span class="comment">//删除容器中所有与elem值匹配的元素。</span></span><br></pre></td></tr></table></figure>
-<p>list大小操作：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">size();<span class="comment">//返回容器中元素的个数</span></span><br><span class="line">empty();<span class="comment">//判断容器是否为空</span></span><br><span class="line">resize(num);<span class="comment">//重新指定容器的长度为num，</span></span><br><span class="line">若容器变长，则以默认值填充新位置。</span><br><span class="line">如果容器变短，则末尾超出容器长度的元素被删除。</span><br><span class="line">resize(num, elem);<span class="comment">//重新指定容器的长度为num，</span></span><br><span class="line">若容器变长，则以elem值填充新位置。</span><br><span class="line">如果容器变短，则末尾超出容器长度的元素被删除。</span><br></pre></td></tr></table></figure>
-<h4 id="7-setmultiset容器"><a class="markdownIt-Anchor" href="#7-setmultiset容器"></a> 7. set/multiset容器</h4>
-<p>Set的特性是所有元素都会根据元素的键值自动被排序。</p>
-<p>multiset特性及用法和set完全相同，唯一的差别在于它允许键值重复。</p>
-<p>set和multiset的底层实现是红黑树。</p>
-<p>插入和删除操作：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">insert(elem);<span class="comment">//在容器中插入元素。</span></span><br><span class="line">clear();<span class="comment">//清除所有元素</span></span><br><span class="line">erase(pos);<span class="comment">//删除pos迭代器所指的元素，返回下一个元素的迭代器。</span></span><br><span class="line">erase(beg, end);<span class="comment">//删除区间[beg,end)的所有元素 ，返回下一个元素的迭代器。</span></span><br><span class="line">erase(elem);<span class="comment">//删除容器中值为elem的元素。</span></span><br></pre></td></tr></table></figure>
-<p>set查找操作：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">find(key);<span class="comment">//查找键key是否存在,若存在，返回该键的元素的迭代器；若不存在，返回set.end();</span></span><br><span class="line">count(key);<span class="comment">//查找键key的元素个数</span></span><br><span class="line">lower_bound(keyElem);<span class="comment">//返回第一个key&gt;=keyElem元素的迭代器。</span></span><br><span class="line">upper_bound(keyElem);<span class="comment">//返回第一个key&gt;keyElem元素的迭代器。</span></span><br><span class="line">equal_range(keyElem);<span class="comment">//返回容器中key与keyElem相等的上下限的两个迭代器。</span></span><br></pre></td></tr></table></figure>
-<p><strong>pair对组</strong></p>
-<ul>
-<li>
-<p>pair将一对值组合成一个值</p>
-</li>
-<li>
-<p>这一对值可以具有不同的数据类型</p>
-</li>
-<li>
-<p>两个值可以分别用pair的两个公有函数first和second访问。</p>
-</li>
-</ul>
-<p>构造：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">make_pair</span>(v1, v2); </span><br></pre></td></tr></table></figure>
-<h4 id="8mapmultimap容器"><a class="markdownIt-Anchor" href="#8mapmultimap容器"></a> 8.map/multimap容器</h4>
-<ul>
-<li>
-<p>Map的特性是，所有元素都会根据元素的键值自动排序。</p>
-</li>
-<li>
-<p>Map所有的元素都是pair,同时拥有实值和键值，pair的第一元素被视为键值，第二元素被视为实值，map不允许两个元素有相同的键值。</p>
-</li>
-</ul>
-<p>map插入数据：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>.insert(...); <span class="comment">//往容器插入元素，返回pair&lt;iterator,bool&gt;</span></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="built_in">string</span>&gt; mapStu;</span><br><span class="line"><span class="comment">// 第一种 通过pair的方式插入对象</span></span><br><span class="line">mapStu.insert(<span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="built_in">string</span>&gt;(<span class="number">3</span>, <span class="string">&quot;小张&quot;</span>));</span><br><span class="line"><span class="comment">// 第二种 通过pair的方式插入对象</span></span><br><span class="line">mapStu.inset(<span class="built_in">make_pair</span>(<span class="number">-1</span>, <span class="string">&quot;校长&quot;</span>));</span><br><span class="line"><span class="comment">// 第三种 通过value_type的方式插入对象</span></span><br><span class="line">mapStu.insert(<span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="built_in">string</span>&gt;::value_type(<span class="number">1</span>, <span class="string">&quot;小李&quot;</span>));</span><br><span class="line"><span class="comment">// 第四种 通过数组的方式插入值</span></span><br><span class="line">mapStu[<span class="number">3</span>] = <span class="string">&quot;小刘&quot;</span>;</span><br><span class="line">mapStu[<span class="number">5</span>] = <span class="string">&quot;小王&quot;</span>;</span><br></pre></td></tr></table></figure>
-<p>map删除：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">clear();<span class="comment">//删除所有元素</span></span><br><span class="line">erase(pos);<span class="comment">//删除pos迭代器所指的元素，返回下一个元素的迭代器。</span></span><br><span class="line">erase(beg,end);<span class="comment">//删除区间[beg,end)的所有元素 ，返回下一个元素的迭代器。</span></span><br><span class="line">erase(keyElem);<span class="comment">//删除容器中key为keyElem的对组。</span></span><br></pre></td></tr></table></figure>
-<p>map查找：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">find(key);<span class="comment">//查找键key是否存在,若存在，返回该键的元素的迭代器；/若不存在，返回map.end();</span></span><br><span class="line">count(keyElem);<span class="comment">//返回容器中key为keyElem的对组个数。对map来说，要么是0，要么是1。对multimap来说，值可能大于1。</span></span><br><span class="line">lower_bound(keyElem);<span class="comment">//返回第一个key&gt;=keyElem元素的迭代器。</span></span><br><span class="line">upper_bound(keyElem);<span class="comment">//返回第一个key&gt;keyElem元素的迭代器。</span></span><br><span class="line">equal_range(keyElem);<span class="comment">//返回容器中key与keyElem相等的上下限的两个迭代器。</span></span><br></pre></td></tr></table></figure>
-<h2 id="需要注意的一点点"><a class="markdownIt-Anchor" href="#需要注意的一点点"></a> 需要注意的一点点</h2>
-<p><code>！！！printf输出% 要用%%</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string提前开辟空间 才能用scanf读入</span><br><span class="line">str.resize(1000);</span><br><span class="line">scanf(&quot;%s&quot;,&amp;str[0]);</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string resize后计算其长度就是开辟空间的大小</span><br><span class="line">const char* s;</span><br><span class="line">s &#x3D; str.c_str();</span><br><span class="line">利用strlen(s)获取其长度</span><br></pre></td></tr></table></figure>
+        <p>三角形面积：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo>=</mo><mi>a</mi><mi>b</mi><mi>s</mi><mi>i</mi><mi>n</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">S =absinB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="mrel">=</span><span class="mord mathit">a</span><span class="mord mathit">b</span><span class="mord mathit">s</span><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span></p>
 
     </div>
 
@@ -494,24 +312,23 @@ $$\frac{x}{y}*10^{c}*(10^k-1) = abcdefef-abcd
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          文章目录
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          站点概览
         </li>
       </ul>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E7%82%B9%E7%82%B9%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0"><span class="nav-number">1.</span> <span class="nav-text"> 一点点算法笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E8%AE%BA"><span class="nav-number">1.1.</span> <span class="nav-text"> 数论</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%99%E5%9C%86%E4%B8%8A%E4%B8%89%E7%82%B9%E6%B1%82%E5%9B%AD%E7%9A%84%E5%91%A8%E9%95%BF"><span class="nav-number">1.1.0.1.</span> <span class="nav-text"> 给圆上三点，求园的周长</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95"><span class="nav-number">1.1.0.2.</span> <span class="nav-text"> 扩展欧几里得算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%A0%E9%99%90%E5%BE%AA%E7%8E%AF%E5%B0%8F%E6%95%B0"><span class="nav-number">1.1.0.3.</span> <span class="nav-text"> 无限循环小数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5"><span class="nav-number">1.1.0.4.</span> <span class="nav-text"> 矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E5%AD%90%E7%9F%A9%E9%98%B5"><span class="nav-number">1.1.0.5.</span> <span class="nav-text"> 最大子矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B4%A0%E6%95%B0%E5%92%8C"><span class="nav-number">1.1.0.6.</span> <span class="nav-text"> 素数和</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stl"><span class="nav-number">1.2.</span> <span class="nav-text"> STL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1string%E5%AE%B9%E5%99%A8"><span class="nav-number">1.2.0.1.</span> <span class="nav-text"> 1.string容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2vector%E5%AE%B9%E5%99%A8"><span class="nav-number">1.2.0.2.</span> <span class="nav-text"> 2.vector容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3deque%E5%AE%B9%E5%99%A8"><span class="nav-number">1.2.0.3.</span> <span class="nav-text"> 3.deque容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4stack%E5%AE%B9%E5%99%A8"><span class="nav-number">1.2.0.4.</span> <span class="nav-text"> 4.stack容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5queue%E5%AE%B9%E5%99%A8"><span class="nav-number">1.2.0.5.</span> <span class="nav-text"> 5.queue容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6list%E5%AE%B9%E5%99%A8"><span class="nav-number">1.2.0.6.</span> <span class="nav-text"> 6.list容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-setmultiset%E5%AE%B9%E5%99%A8"><span class="nav-number">1.2.0.7.</span> <span class="nav-text"> 7. set&#x2F;multiset容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8mapmultimap%E5%AE%B9%E5%99%A8"><span class="nav-number">1.2.0.8.</span> <span class="nav-text"> 8.map&#x2F;multimap容器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E4%B8%80%E7%82%B9%E7%82%B9"><span class="nav-number">1.3.</span> <span class="nav-text"> 需要注意的一点点</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="yyq"
+    <img class="site-author-image" itemprop="image" alt="袁瑜谦"
       src="/images/avatar.jpg">
-  <p class="site-author-name" itemprop="name">yyq</p>
+  <p class="site-author-name" itemprop="name">袁瑜谦</p>
   <div class="site-description" itemprop="description">good good study</div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -520,14 +337,14 @@ $$\frac{x}{y}*10^{c}*(10^k-1) = abcdefef-abcd
           <a href="/archives/">
         
           <span class="site-state-item-count">2</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
         <span class="site-state-item-count">2</span>
-        <span class="site-state-item-name">tags</span></a>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -562,9 +379,9 @@ $$\frac{x}{y}*10^{c}*(10^k-1) = abcdefef-abcd
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">yyq</span>
+  <span class="author" itemprop="copyrightHolder">袁瑜谦</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
         
@@ -581,6 +398,8 @@ $$\frac{x}{y}*10^{c}*(10^k-1) = abcdefef-abcd
   </div>
 
   
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
@@ -622,6 +441,6 @@ $$\frac{x}{y}*10^{c}*(10^k-1) = abcdefef-abcd
 
   
 
-  
+
 </body>
 </html>
