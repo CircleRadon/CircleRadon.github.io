@@ -1,32 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>test</title>
-    <url>/2021/02/04/test/</url>
-    <content><![CDATA[<p>三角形面积：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo>=</mo><mi>a</mi><mi>b</mi><mi>s</mi><mi>i</mi><mi>n</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">S =absinB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="mrel">=</span><span class="mord mathit">a</span><span class="mord mathit">b</span><span class="mord mathit">s</span><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span></p>
+    <title>数论</title>
+    <url>/2021/02/04/%E6%95%B0%E8%AE%BA/</url>
+    <content><![CDATA[<hr />
+<p>刷题时遇到的一些数论知识，记录一下。</p>
+<a id="more"></a>
+<h4 id="给圆上三点求园的周长"><a class="markdownIt-Anchor" href="#给圆上三点求园的周长"></a> 给圆上三点，求园的周长</h4>
+<blockquote>
+<p>三角形面积：\(S = \frac{1}{2}absinB\)</p>
+<p>根据海伦公式：\(S = \sqrt{p(p-a)(p-b)(p-c)}\)</p>
+<p>根据正弦定理：\(\frac{a}{sinA} = \frac{b}{sinB} = \frac{c}{sinC} = d\)</p>
+</blockquote>
+<p>把\(sinA = \frac{a}{d}\)代入上式得：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mo>=</mo><mfrac><mrow><mi>a</mi><mi>b</mi><mi>c</mi></mrow><mrow><mn>2</mn><mi>S</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">d = \frac{abc}{2S}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.37144em;"></span><span class="strut bottom" style="height:2.05744em;vertical-align:-0.686em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">d</span><span class="mrel">=</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathrm">2</span><span class="mord mathit" style="margin-right:0.05764em;">S</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit">a</span><span class="mord mathit">b</span><span class="mord mathit">c</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></span></p>
+<p>外界圆周长： \( l = d*\pi\)</p>
+<h4 id="扩展欧几里得算法"><a class="markdownIt-Anchor" href="#扩展欧几里得算法"></a> 扩展欧几里得算法</h4>
+<blockquote>
+<p><strong>贝祖定理</strong>：</p>
+<p>如果a、b是整数，那么一定存在整数x、y使得ax+by=gcd(a,b)。</p>
+</blockquote>
+<p>得到每两个相邻状态的x和y的转化，就可以在求gcd的同时对x和y进行求值：</p>
+<p>\(a % b = a-(a/b)*b\)   代入：</p>
+<p>\(b*x1 + (a-(a/b)*b)*y1\)</p>
+<p>=a<em>y1 + b</em>(x1 – a/b*y1) = gcd</p>
+<p><code>发现</code>  \( x = y1 , y = x1 – a/b*y1\)</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">exgcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> &amp;x,<span class="keyword">int</span> &amp;y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        x=<span class="number">1</span>,y=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> d=exgcd(b,a%b,x,y);</span><br><span class="line">    <span class="keyword">int</span> k=x;</span><br><span class="line">    x=y;</span><br><span class="line">    y=k-a/b*y;</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="无限循环小数"><a class="markdownIt-Anchor" href="#无限循环小数"></a> 无限循环小数</h4>
+<p><em><strong>万能公式</strong></em></p>
+<p>设小数\(0.abcdefef\)…, 设其对应最简分数为:  \(\frac{x}{y}\)</p>
+<p>设非循环节长度为c，循环节总长度为k，则</p>
+<p>$\frac{x}{y}*10^{k+c} = abcdefef $ (将小数点后的数省略)</p>
+<p>$\frac{x}{y}*10^{c} = abcd $  (将小数点后的数省略)</p>
+<p>相减得到：</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi>x</mi></mrow><mrow><mi>y</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>a</mi><mi>b</mi><mi>c</mi><mi>d</mi><mi>e</mi><mi>f</mi><mi>e</mi><mi>f</mi><mo>−</mo><mi>a</mi><mi>b</mi><mi>c</mi><mi>d</mi></mrow><mrow><mn>1</mn><msup><mn>0</mn><mrow><mi>c</mi></mrow></msup><mo>∗</mo><mo>(</mo><mn>1</mn><msup><mn>0</mn><mi>k</mi></msup><mo>−</mo><mn>1</mn><mo>)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{x}{y} = \frac{abcdefef-abcd}{10^{c}*(10^k-1)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.9322159999999999em;"></span><span class="strut bottom" style="height:1.4667359999999998em;vertical-align:-0.5345199999999999em;"></span><span class="base textstyle uncramped"><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">x</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mrel">=</span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.3595199999999999em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.289em;margin-right:0.07142857142857144em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathit">c</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">∗</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.289em;margin-right:0.07142857142857144em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.44610799999999995em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">a</span><span class="mord mathit">b</span><span class="mord mathit">c</span><span class="mord mathit">d</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mbin">−</span><span class="mord mathit">a</span><span class="mord mathit">b</span><span class="mord mathit">c</span><span class="mord mathit">d</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></p>
+<h4 id="矩阵"><a class="markdownIt-Anchor" href="#矩阵"></a> 矩阵</h4>
+<p><strong>Homogeneous矩阵</strong>——写在 n 个独立位置上的数的和相等。</p>
+<p>判断一个矩阵是否是Homogeneous矩阵，通过局部递推出规律：</p>
+<p>对于一个n×n方阵，只要它的所有（n-1)×(n-1)子方阵是Homogeneous的，则该方阵是Homogeneous的；进一步递推可得，只要该方阵的所有2×2的子方阵符合两对角线相加相等，则该方阵是Homogeneous的。</p>
+<h4 id="最大子矩阵"><a class="markdownIt-Anchor" href="#最大子矩阵"></a> 最大子矩阵</h4>
+<p>将二维数组转化为一维数组，再求最大子序列和。</p>
+<p>（1）第一轮：第一次仅第一行合并；第二次1、2行合并；第三次1、2、3行合并…</p>
+<p>（2）第二轮：第一次仅第二行合并；第二次2、3行合并；第三次2、3、4行合并…</p>
+<p>（3）第三轮：第一次仅第三行合并；第二次3、4行合并；第三次3、4、5行合并…</p>
+<p><strong>求最大子序列：</strong></p>
+<blockquote>
+<p>初始化ans=0，累加0到n-1个元素，每一步得到一个sum，如果某一步中sum&gt;ans，则更新ans，如果sum&lt;0，则重置sum为0，最终ans中储存的即为最大子序列和。</p>
+</blockquote>
+<h4 id="素数和"><a class="markdownIt-Anchor" href="#素数和"></a> 素数和</h4>
+<p><strong>哥德巴赫猜想：</strong> 每个大于4的偶数可以写成两个奇素数的和。</p>
+<p>将每个数表示成4个素数的和：</p>
+<p>N&lt;8 不能表示</p>
+<p>N&gt;=8的偶数 先分解出2 2，N-=4</p>
+<p>N&gt;=8的奇数 先分解出2 3，N-=5</p>
 ]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
       <tags>
-        <tag>笔记</tag>
+        <tag>数论</tag>
         <tag>算法</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2021/02/04/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="quick-start"><a class="markdownIt-Anchor" href="#quick-start"></a> Quick Start</h2>
-<h3 id="create-a-new-post"><a class="markdownIt-Anchor" href="#create-a-new-post"></a> Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server"><a class="markdownIt-Anchor" href="#run-server"></a> Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files"><a class="markdownIt-Anchor" href="#generate-static-files"></a> Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites"><a class="markdownIt-Anchor" href="#deploy-to-remote-sites"></a> Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
 </search>
