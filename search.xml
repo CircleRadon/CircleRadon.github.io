@@ -671,4 +671,35 @@ d = \frac{abc}{2S}</script><p>外界圆周长： \( l = d*\pi\)</p>
         <tag>static</tag>
       </tags>
   </entry>
+  <entry>
+    <title>C++ this指针</title>
+    <url>/2021/02/10/this/</url>
+    <content><![CDATA[<h3 id="this-指针"><a class="markdownIt-Anchor" href="#this-指针"></a> this 指针</h3>
+<a id="more"></a>
+<ol>
+<li>
+<p><code>this</code> 指针是一个隐含于每一个非静态成员函数中的特殊指针。它指向调用该成员函数的那个对象。</p>
+</li>
+<li>
+<p>当对一个对象调用成员函数时，编译程序先将对象的地址赋给 <code>this</code> 指针，然后调用成员函数，每次成员函数存取数据成员时，都隐式使用 <code>this</code> 指针。</p>
+</li>
+<li>
+<p>当一个成员函数被调用时，自动向它传递一个隐含的参数，该参数是一个指向这个成员函数所在的对象的指针。</p>
+</li>
+<li>
+<p><code>this</code> 指针被隐含地声明为: <code>ClassName *const this</code>，这意味着不能给 <code>this</code> 指针赋值；在 <code>ClassName</code> 类的 <code>const</code> 成员函数中，<code>this</code> 指针的类型为：<code>const ClassName* const</code>，这说明不能对 <code>this</code> 指针所指向的这种对象是不可修改的（即不能对这种对象的数据成员进行赋值操作）；</p>
+</li>
+<li>
+<p><code>this</code> 并不是一个常规变量，而是个右值，所以不能取得 <code>this</code> 的地址（不能 <code>&amp;this</code>）。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>c++</tag>
+        <tag>this</tag>
+      </tags>
+  </entry>
 </search>
