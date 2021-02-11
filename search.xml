@@ -738,4 +738,54 @@ d = \frac{abc}{2S}</script><p>外界圆周长： \( l = d*\pi\)</p>
         <tag>inline</tag>
       </tags>
   </entry>
+  <entry>
+    <title>二分搜索总结 BinarySearch</title>
+    <url>/2021/02/11/binarysearch/</url>
+    <content><![CDATA[<p>二分搜索几种情况总结以及例题分享。</p>
+<a id="more"></a>
+<ul>
+<li>
+<h4 id="不重复元素寻找目标值最基本"><a class="markdownIt-Anchor" href="#不重复元素寻找目标值最基本"></a> 不重复元素寻找目标值（最基本）</h4>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//找不到返回-1</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = nums.size()<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left&lt;=right)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left+(right-left)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (nums[mid]==target)</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid]&gt;target)</span><br><span class="line">                right = mid<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                left = mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>该模板的应用：</p>
+<p>1.<a href="https://leetcode-cn.com/problems/sqrtx/">leetcode——x的平方根</a></p>
+<p>2.<a href="https://leetcode-cn.com/problems/guess-number-higher-or-lower/">leetcode——猜数字大小</a></p>
+<p>3.<a href="https://leetcode-cn.com/problems/search-in-rotated-sorted-array/">leetcode——搜索旋转排序数组</a>  有点妙！题解：<a href="https://leetcode-cn.com/problems/search-in-rotated-sorted-array/solution/er-fen-fa-sou-suo-xuan-zhuan-pai-xu-shu-tvwx6/">leetcode题解C++</a></p>
+<ul>
+<li>
+<h4 id="找当前索引以及直接右邻索引"><a class="markdownIt-Anchor" href="#找当前索引以及直接右邻索引"></a> 找当前索引以及直接右邻索引</h4>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(nums.size() == <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> left = <span class="number">0</span>, right = nums.size();</span><br><span class="line">  <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">    <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(nums[mid] == target)&#123; <span class="keyword">return</span> mid; &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid] &lt; target) &#123; left = mid + <span class="number">1</span>; &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123; right = mid; &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该模板的应用：</p>
+<p>1.<a href="https://leetcode-cn.com/problems/first-bad-version/">leetcode——第一个错误的版本</a></p>
+<p>2.<a href="https://leetcode-cn.com/problems/find-peak-element/">leetcode——寻找峰值</a></p>
+<p>3.<a href="https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/">leetcode——寻找旋转排序数组中的最小值</a></p>
+<p>4.<a href="https://leetcode-cn.com/problems/find-k-closest-elements/">leetcode——找到k个最接近的元素</a>  很妙的思路！</p>
+<ul>
+<li>
+<h4 id="找当前索引以及直接左右邻索引"><a class="markdownIt-Anchor" href="#找当前索引以及直接左右邻索引"></a> 找当前索引以及直接左右邻索引</h4>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (nums.size() == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>, right = nums.size() - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (left + <span class="number">1</span> &lt; right)&#123;</span><br><span class="line">        <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (nums[mid] == target) &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">            left = mid;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            right = mid;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(nums[left] == target) <span class="keyword">return</span> left;</span><br><span class="line">    <span class="keyword">if</span>(nums[right] == target) <span class="keyword">return</span> right;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<h4 id="找元素出现的第一个位置"><a class="markdownIt-Anchor" href="#找元素出现的第一个位置"></a> 找元素出现的第一个位置</h4>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//若没找到，返回大于该元素的第一个元素</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowerBound</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = nums.size() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);  <span class="comment">//不容易移除</span></span><br><span class="line">            <span class="keyword">if</span> (target &lt;= nums[mid]) &#123;</span><br><span class="line">                <span class="comment">//当目标值小于等于nums[mid]时，继续在左区间检索，找到第一个数</span></span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (target &gt; nums[mid]) &#123;</span><br><span class="line">                <span class="comment">//目标值大于nums[mid]时，则在右区间继续检索，找到第一个等于目标值的数</span></span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<h4 id="找元素出现的最后一个位置"><a class="markdownIt-Anchor" href="#找元素出现的最后一个位置"></a> 找元素出现的最后一个位置</h4>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//若没找到，返回小于该元素的第一个元素</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">upperBound</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = nums.size() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="comment">//移动左指针情况</span></span><br><span class="line">            <span class="keyword">if</span> (target &gt;= nums[mid]) &#123;</span><br><span class="line">                 left = mid + <span class="number">1</span>; </span><br><span class="line">            <span class="comment">//移动右指针情况</span></span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (target &lt; nums[mid]) &#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> right;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>BinarySearch</tag>
+        <tag>C++</tag>
+      </tags>
+  </entry>
 </search>
