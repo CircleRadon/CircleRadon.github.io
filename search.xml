@@ -782,10 +782,72 @@ d = \frac{abc}{2S}</script><p>外界圆周长： \( l = d*\pi\)</p>
 </li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//若没找到，返回小于该元素的第一个元素</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">upperBound</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = nums.size() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="comment">//移动左指针情况</span></span><br><span class="line">            <span class="keyword">if</span> (target &gt;= nums[mid]) &#123;</span><br><span class="line">                 left = mid + <span class="number">1</span>; </span><br><span class="line">            <span class="comment">//移动右指针情况</span></span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (target &lt; nums[mid]) &#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> right;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>相关题目：</p>
+<p><a href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/">leetcode——在排序数组中查找元素的第一个和最后一个位置</a></p>
 ]]></content>
       <tags>
         <tag>BinarySearch</tag>
         <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>trie</title>
+    <url>/2021/02/18/trie/</url>
+    <content><![CDATA[<h2 id="前缀树字典树trie树"><a class="markdownIt-Anchor" href="#前缀树字典树trie树"></a> 前缀树/字典树/trie树</h2>
+<p><strong>定义</strong></p>
+<blockquote>
+<p>又称单词查找树，字典树，Trie树，是一种树形结构，是一种<code>哈希树</code>的变种。典型应用是用于统计，排序和保存大量的字符串（但不仅限于字符串），所以经常被搜索引擎系统用于文本词频统计。它的优点是：<strong>利用字符串的公共前缀来减少查询时间，最大限度地减少无谓的字符串比较，查询效率比哈希树高。</strong></p>
+</blockquote>
+<a id="more"></a>
+<img src="https://pic.leetcode-cn.com/3a0be6938b0a5945695fcddd29c74aacc7ac30f040f5078feefab65339176058-file_1575215106942" alt="实际并非如此，但我们仍可这样理解" style="zoom: 67%;" />
+<p><strong>前缀树的性质：</strong></p>
+<ul>
+<li>根节点不包含字符，除根节点外每一个节点都只包含一个字符</li>
+<li>从根节点到某一节点，路径上经过的字符连接起来，为该节点对应的字符串</li>
+<li>每个节点的所有子节点包含的字符都不相同</li>
+</ul>
+<p><strong>常用操作：</strong></p>
+<ul>
+<li><strong>类定义</strong></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trie</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">bool</span> isEnd;</span><br><span class="line">    Trie* next[<span class="number">26</span>];</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>插入单词</strong></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="built_in">string</span> word)</span> </span>&#123;</span><br><span class="line">    Trie* node = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> w : word) &#123;</span><br><span class="line">        <span class="keyword">if</span> (node-&gt;next[w-<span class="string">&#x27;a&#x27;</span>] == <span class="literal">NULL</span>) &#123;</span><br><span class="line">            node-&gt;next[w-<span class="string">&#x27;a&#x27;</span>] = <span class="keyword">new</span> Trie();</span><br><span class="line">        &#125;</span><br><span class="line">        node = node-&gt;next[w-<span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    node-&gt;isEnd = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>时间复杂度：O(m)，其中 m 为键长。</p>
+</li>
+<li>
+<p>空间复杂度：O(m)O(m)。最坏的情况下，新插入的键和 Trie 树中已有的键没有公共前缀。此时需要添加 m 个结点，使用 O(m) 空间。</p>
+</li>
+<li>
+<p><strong>查找单词</strong></p>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">search</span><span class="params">(<span class="built_in">string</span> word)</span> </span>&#123;</span><br><span class="line">    Trie* node = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> w : word) &#123;</span><br><span class="line">        node = node-&gt;next[w - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        <span class="keyword">if</span> (node == <span class="literal">NULL</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> node-&gt;isEnd;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>时间复杂度 : O(m)<em>O</em>(<em>m</em>)。算法的每一步均搜索下一个键字符。最坏的情况下需要 m<em>m</em> 次操作。</p>
+</li>
+<li>
+<p>空间复杂度 : O(1)<em>O</em>(1)。</p>
+</li>
+<li>
+<p><strong>前缀匹配</strong></p>
+<p>判断 Trie 中是否有以 prefix 为前缀的单词</p>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">startsWith</span><span class="params">(<span class="built_in">string</span> prefix)</span> </span>&#123;</span><br><span class="line">    Trie* node = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> w : prefix) &#123;</span><br><span class="line">        node = node-&gt;next[w-<span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        <span class="keyword">if</span> (node == <span class="literal">NULL</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>时间复杂度 : O(m)<em>O</em>(<em>m</em>)。</li>
+<li>空间复杂度 : O(1)<em>O</em>(1)。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>C++</tag>
+        <tag>字典树</tag>
       </tags>
   </entry>
 </search>
