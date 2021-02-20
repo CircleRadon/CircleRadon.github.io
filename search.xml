@@ -860,7 +860,7 @@ d = \frac{abc}{2S}</script><p>外界圆周长： \( l = d*\pi\)</p>
 <h3 id="线段树原理"><a class="markdownIt-Anchor" href="#线段树原理"></a> 线段树原理</h3>
 <p>​		线段树主要是把一段大区间<strong>平均地划分</strong>成两段小区间进行维护，再用小区间的值来更新大区间。这样既能保证正确性，又能使时间保持在log级别（因为这棵线段树是平衡的）。也就是说，一个[ L , R ] 的区间会被划分成[ L , ⌊ (L + R)/2 ⌋ ] 和[ ⌊ (L + R)/ 2 ⌋ + 1 , R ] 这两个小区间进行维护，直到 L = R 。<br />
 ​		下图就是一棵[ 1 , 10 ] 的线段树的分解过程（相同颜色的节点在同一层）</p>
-<img src="https://img-blog.csdn.net/20180819213931568#pic_center" alt="img" style="zoom: 50%;" />
+<p><img src="D:%5Cblog%5Cmyblog%5Csource_posts%5C20180.jpg" alt="20180" /></p>
 <h3 id="存储方式"><a class="markdownIt-Anchor" href="#存储方式"></a> 存储方式</h3>
 <p>通常用的都是<strong>堆式储存法</strong>，即编号为k的节点的左儿子编号为2k，右儿子编号为2k + 1，父节点编号为⌊ k/2 ⌋，用<strong>位运算</strong>优化一下，以上的节点编号就变成了<code>k&lt;&lt;1</code>, <code>k&lt;&lt;1|1</code>, <code>k&gt;&gt;1</code>。</p>
 <p>在表示线段树的时候都要在数据量n的情况下多开更大的空间，一般都是开四倍。</p>
@@ -889,7 +889,6 @@ d = \frac{abc}{2S}</script><p>外界圆周长： \( l = d*\pi\)</p>
 <p>当区右间包含修改的区间时，就递归到右区间；</p>
 </li>
 </ul>
-<img src="https://img-blog.csdn.net/20180820161515555#pic_center" alt="这里写图片描述" style="zoom: 80%;" />
 <p><strong>！修改要用到懒惰标记！</strong></p>
 <h3 id="懒惰标记"><a class="markdownIt-Anchor" href="#懒惰标记"></a> 懒惰标记</h3>
 <p><strong>标记的含义：本区间已经被更新过了，但是子区间却没有被更新过，被更新的信息是什么（区间求和只用记录有没有被访问过，而区间加减乘除等多种操作的问题则要记录进行的是哪一种操作）</strong><br />
